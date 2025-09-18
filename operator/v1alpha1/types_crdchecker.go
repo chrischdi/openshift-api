@@ -84,6 +84,25 @@ const (
 	CRDAdmitActionWarn CRDAdmitAction = "Warn"
 )
 
+const (
+	CRDCompatibilityConditionTypeProgressing string = "Progressing"
+	CRDCompatibilityConditionTypeAdmitted    string = "Admitted"
+	CRDCompatibilityConditionTypeCompatible  string = "Compatible"
+
+	CRDCompatibilityProgressingReasonConfigurationError string = "ConfigurationError"
+	CRDCompatibilityProgressingReasonTransientError     string = "TransientError"
+	CRDCompatibilityProgressingReasonUpToDate           string = "UpToDate"
+
+	CRDCompatibilityCompatibleReasonRequirementsNotMet     string = "RequirementsNotMet"
+	CRDCompatibilityCompatibleReasonCRDDoesNotExist        string = "CRDDoesNotExist"
+	CRDCompatibilityCompatibleReasonCompatibleWithWarnings string = "CompatibleWithWarnings"
+	CRDCompatibilityCompatibleReasonCompatible             string = "Compatible"
+
+	CRDCompatibilityAdmittedReasonAdmitted               string = "Admitted"
+	CRDCompatibilityAdmittedReasonCompatibilityCRDNotSet string = "CompatibilityCRDNotSet"
+	CRDCompatibilityAdmittedReasonNotAdmitted            string = "NotAdmitted"
+)
+
 // CRDCompatibilityRequirementStatus defines the observed status of the CRD Compatibility Requirement.
 // +kubebuilder:validation:MinProperties=1
 type CRDCompatibilityRequirementStatus struct {
