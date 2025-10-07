@@ -58326,13 +58326,6 @@ func schema_openshift_api_operator_v1alpha1_CRDCompatibilityRequirementSpec(ref 
 				Description: "CRDCompatibilityRequirementSpec is the specification of the desired behavior of the CRD Compatibility Requirement.",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
-					"crdRef": {
-						SchemaProps: spec.SchemaProps{
-							Description: "crdRef is the name of the target CRD. The target CRD is not required to exist, as we may legitimately place requirements on it before it is created.  The observed CRD is given in status.observedCRD, which will be empty if no CRD is observed. This field is required.",
-							Type:        []string{"string"},
-							Format:      "",
-						},
-					},
 					"creatorDescription": {
 						SchemaProps: spec.SchemaProps{
 							Description: "creatorDescription is a string describing the owner of this CRDCompatibilityRequirement. It will be printed in any error or warning emitted by any of the CRDCompatibilityRequirement's webhooks. It should indicate to the recipient who they need to coordinate with in order to safely update the target CRD. The message emitted will be: \"This requirement was added by <creatorDescription>\". This field is required.",
@@ -58355,7 +58348,7 @@ func schema_openshift_api_operator_v1alpha1_CRDCompatibilityRequirementSpec(ref 
 						},
 					},
 				},
-				Required: []string{"crdRef", "creatorDescription", "compatibilityCRD", "crdAdmitAction"},
+				Required: []string{"creatorDescription", "compatibilityCRD", "crdAdmitAction"},
 			},
 		},
 	}
@@ -58395,6 +58388,13 @@ func schema_openshift_api_operator_v1alpha1_CRDCompatibilityRequirementStatus(re
 							Description: "observedCRD documents the uid and generation of the CRD object when the current status was written. This field will not be emitted if the target CRD does not exist or could not be retrieved.",
 							Default:     map[string]interface{}{},
 							Ref:         ref("github.com/openshift/api/operator/v1alpha1.ObservedCRD"),
+						},
+					},
+					"crdName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "crdName is the name of the target CRD. The target CRD is not required to exist, as we may legitimately place requirements on it before it is created.  The observed CRD is given in status.observedCRD, which will be empty if no CRD is observed. This field is optional.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 				},

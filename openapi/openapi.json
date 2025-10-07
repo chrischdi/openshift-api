@@ -33924,7 +33924,6 @@
       "description": "CRDCompatibilityRequirementSpec is the specification of the desired behavior of the CRD Compatibility Requirement.",
       "type": "object",
       "required": [
-        "crdRef",
         "creatorDescription",
         "compatibilityCRD",
         "crdAdmitAction"
@@ -33936,10 +33935,6 @@
         },
         "crdAdmitAction": {
           "description": "crdAdmitAction determines whether the CRD admission controller will Enforce or Warn if the CRD presented is not compatible. This field is required.",
-          "type": "string"
-        },
-        "crdRef": {
-          "description": "crdRef is the name of the target CRD. The target CRD is not required to exist, as we may legitimately place requirements on it before it is created.  The observed CRD is given in status.observedCRD, which will be empty if no CRD is observed. This field is required.",
           "type": "string"
         },
         "creatorDescription": {
@@ -33963,6 +33958,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "crdName": {
+          "description": "crdName is the name of the target CRD. The target CRD is not required to exist, as we may legitimately place requirements on it before it is created.  The observed CRD is given in status.observedCRD, which will be empty if no CRD is observed. This field is optional.",
+          "type": "string"
         },
         "observedCRD": {
           "description": "observedCRD documents the uid and generation of the CRD object when the current status was written. This field will not be emitted if the target CRD does not exist or could not be retrieved.",

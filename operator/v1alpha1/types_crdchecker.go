@@ -1,6 +1,7 @@
 package v1alpha1
 
 import (
+	admissionregistrationv1 "k8s.io/api/admissionregistration/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -38,17 +39,6 @@ type CRDCompatibilityRequirement struct {
 
 // CRDCompatibilityRequirementSpec is the specification of the desired behavior of the CRD Compatibility Requirement.
 type CRDCompatibilityRequirementSpec struct {
-	// crdRef is the name of the target CRD. The target CRD is not required to
-	// exist, as we may legitimately place requirements on it before it is
-	// created.  The observed CRD is given in status.observedCRD, which will be
-	// empty if no CRD is observed.
-	// This field is required.
-	// +kubebuilder:validation:MinLength=1
-	// +kubebuilder:validation:MaxLength:=253
-	// +kubebuilder:validation:XValidation:rule="!format.dns1123Subdomain().validate(self).hasValue()",message="a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character."
-	// +required
-	CRDRef string `json:"crdRef,omitempty"`
-
 	// creatorDescription is a string describing the owner of this CRDCompatibilityRequirement. It will be printed in any error or
 	// warning emitted by any of the CRDCompatibilityRequirement's webhooks. It should indicate to the recipient who they need to coordinate
 	// with in order to safely update the target CRD. The message emitted will be: "This requirement was added by <creatorDescription>".
@@ -70,6 +60,33 @@ type CRDCompatibilityRequirementSpec struct {
 	// This field is required.
 	// +required
 	CRDAdmitAction CRDAdmitAction `json:"crdAdmitAction,omitempty"`
+
+	// objectValidation enables and configures the additional object validation of this CRDCompatibilityRequirement.
+	// This field is optional.
+	// +optional
+	ObjectValidation *CRDCompatibilityRequirementSpecObjectValidation `json:"objectValidation,omitempty"`
+}
+
+// CRDCompatibilityRequirementSpecObjectValidation is the specification of the object validation of the CRD Compatibility Requirement.
+type CRDCompatibilityRequirementSpecObjectValidation struct {
+	// action determines whether the ValidatingWebhookConfiguration will Enforce or Warn if the object validation fails.
+	// This field is required.
+	// +required
+	Action CRDAdmitAction `json:"action,omitempty"`
+
+	// namespaceSelector defines the namespaceSelector field of the resulting ValidatingWebhookConfiguration.
+	NamespaceSelector *metav1.LabelSelector `json:"namespaceSelector,omitempty"`
+
+	// objectSelector defines the objectSelector field of the resulting ValidatingWebhookConfiguration.
+	// +optional
+	ObjectSelector *metav1.LabelSelector `json:"objectSelector,omitempty" protobuf:"bytes,10,opt,name=objectSelector"`
+
+	// matchConditions defines the matchConditions field of the resulting ValidatingWebhookConfiguration.
+	//
+	// +listType=map
+	// +listMapKey=name
+	// +optional
+	MatchConditions []admissionregistrationv1.MatchCondition `json:"matchConditions,omitempty" patchStrategy:"merge" patchMergeKey:"name" protobuf:"bytes,11,opt,name=matchConditions"`
 }
 
 // CRDAdmitAction determines the action taken when a CRD is not compatible.
@@ -117,6 +134,17 @@ type CRDCompatibilityRequirementStatus struct {
 	// This field will not be emitted if the target CRD does not exist or could not be retrieved.
 	// +optional
 	ObservedCRD ObservedCRD `json:"observedCRD,omitzero"`
+
+	// crdName is the name of the target CRD. The target CRD is not required to
+	// exist, as we may legitimately place requirements on it before it is
+	// created.  The observed CRD is given in status.observedCRD, which will be
+	// empty if no CRD is observed.
+	// This field is optional.
+	// +kubebuilder:validation:MinLength=1
+	// +kubebuilder:validation:MaxLength:=253
+	// +kubebuilder:validation:XValidation:rule="!format.dns1123Subdomain().validate(self).hasValue()",message="a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character."
+	// +optional
+	CRDName string `json:"crdName,omitempty"`
 }
 
 // ObservedCRD contains information about the observed target CRD.

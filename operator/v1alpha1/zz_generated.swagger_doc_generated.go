@@ -197,7 +197,6 @@ func (CRDCompatibilityRequirementList) SwaggerDoc() map[string]string {
 
 var map_CRDCompatibilityRequirementSpec = map[string]string{
 	"":                   "CRDCompatibilityRequirementSpec is the specification of the desired behavior of the CRD Compatibility Requirement.",
-	"crdRef":             "crdRef is the name of the target CRD. The target CRD is not required to exist, as we may legitimately place requirements on it before it is created.  The observed CRD is given in status.observedCRD, which will be empty if no CRD is observed. This field is required.",
 	"creatorDescription": "creatorDescription is a string describing the owner of this CRDCompatibilityRequirement. It will be printed in any error or warning emitted by any of the CRDCompatibilityRequirement's webhooks. It should indicate to the recipient who they need to coordinate with in order to safely update the target CRD. The message emitted will be: \"This requirement was added by <creatorDescription>\". This field is required.",
 	"compatibilityCRD":   "compatibilityCRD contains the CRD which is required by the creator of this CRDCompatibilityRequirement. CRD Compatibility Checker will ensure that only a target CRD compatible with compatibilityCRD may be admitted. This field is required.",
 	"crdAdmitAction":     "crdAdmitAction determines whether the CRD admission controller will Enforce or Warn if the CRD presented is not compatible. This field is required.",
@@ -211,6 +210,7 @@ var map_CRDCompatibilityRequirementStatus = map[string]string{
 	"":            "CRDCompatibilityRequirementStatus defines the observed status of the CRD Compatibility Requirement.",
 	"conditions":  "conditions is a list of conditions and their status.",
 	"observedCRD": "observedCRD documents the uid and generation of the CRD object when the current status was written. This field will not be emitted if the target CRD does not exist or could not be retrieved.",
+	"crdName":     "crdName is the name of the target CRD. The target CRD is not required to exist, as we may legitimately place requirements on it before it is created.  The observed CRD is given in status.observedCRD, which will be empty if no CRD is observed. This field is optional.",
 }
 
 func (CRDCompatibilityRequirementStatus) SwaggerDoc() map[string]string {
