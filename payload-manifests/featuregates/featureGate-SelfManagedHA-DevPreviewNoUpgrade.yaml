@@ -15,16 +15,25 @@
             {
                 "disabled": [
                     {
+                        "name": "ClientsAllowCBOR"
+                    },
+                    {
                         "name": "ClusterAPIInstall"
                     },
                     {
                         "name": "EventedPLEG"
                     },
                     {
+                        "name": "HyperShiftOnlyDynamicResourceAllocation"
+                    },
+                    {
                         "name": "MachineAPIOperatorDisableMachineHealthCheckController"
                     },
                     {
                         "name": "MultiArchInstallAzure"
+                    },
+                    {
+                        "name": "NewOLMBoxCutterRuntime"
                     },
                     {
                         "name": "ShortCertRotation"
@@ -92,9 +101,6 @@
                         "name": "CRDCompatibilityRequirementOperator"
                     },
                     {
-                        "name": "ClientsAllowCBOR"
-                    },
-                    {
                         "name": "ClientsPreferCBOR"
                     },
                     {
@@ -123,9 +129,6 @@
                     },
                     {
                         "name": "DyanmicServiceEndpointIBMCloud"
-                    },
-                    {
-                        "name": "DynamicResourceAllocation"
                     },
                     {
                         "name": "EtcdBackendQuota"
@@ -266,7 +269,7 @@
                         "name": "NewOLMWebhookProviderOpenshiftServiceCA"
                     },
                     {
-                        "name": "NoRegistryClusterOperations"
+                        "name": "NoRegistryClusterInstall"
                     },
                     {
                         "name": "NutanixMultiSubnets"
@@ -276,6 +279,9 @@
                     },
                     {
                         "name": "OVNObservability"
+                    },
+                    {
+                        "name": "OnPremDNSRecords"
                     },
                     {
                         "name": "OpenShiftPodSecurityAdmission"
@@ -288,6 +294,9 @@
                     },
                     {
                         "name": "ProcMountType"
+                    },
+                    {
+                        "name": "ProvisioningRequestAvailable"
                     },
                     {
                         "name": "RouteAdvertisements"

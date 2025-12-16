@@ -15,6 +15,9 @@
             {
                 "disabled": [
                     {
+                        "name": "ClientsAllowCBOR"
+                    },
+                    {
                         "name": "ClusterAPIInstall"
                     },
                     {
@@ -30,6 +33,9 @@
                         "name": "ExternalSnapshotMetadata"
                     },
                     {
+                        "name": "HyperShiftOnlyDynamicResourceAllocation"
+                    },
+                    {
                         "name": "IngressControllerDynamicConfigurationManager"
                     },
                     {
@@ -39,10 +45,13 @@
                         "name": "MultiArchInstallAzure"
                     },
                     {
-                        "name": "ShortCertRotation"
+                        "name": "NewOLMBoxCutterRuntime"
                     },
                     {
-                        "name": "VSphereMixedNodeEnv"
+                        "name": "ProvisioningRequestAvailable"
+                    },
+                    {
+                        "name": "ShortCertRotation"
                     }
                 ],
                 "enabled": [
@@ -107,9 +116,6 @@
                         "name": "CRDCompatibilityRequirementOperator"
                     },
                     {
-                        "name": "ClientsAllowCBOR"
-                    },
-                    {
                         "name": "ClientsPreferCBOR"
                     },
                     {
@@ -135,9 +141,6 @@
                     },
                     {
                         "name": "DyanmicServiceEndpointIBMCloud"
-                    },
-                    {
-                        "name": "DynamicResourceAllocation"
                     },
                     {
                         "name": "EtcdBackendQuota"
@@ -269,7 +272,7 @@
                         "name": "NewOLMWebhookProviderOpenshiftServiceCA"
                     },
                     {
-                        "name": "NoRegistryClusterOperations"
+                        "name": "NoRegistryClusterInstall"
                     },
                     {
                         "name": "NutanixMultiSubnets"
@@ -279,6 +282,9 @@
                     },
                     {
                         "name": "OVNObservability"
+                    },
+                    {
+                        "name": "OnPremDNSRecords"
                     },
                     {
                         "name": "OpenShiftPodSecurityAdmission"
@@ -333,6 +339,9 @@
                     },
                     {
                         "name": "VSphereHostVMGroupZonal"
+                    },
+                    {
+                        "name": "VSphereMixedNodeEnv"
                     },
                     {
                         "name": "VSphereMultiDisk"

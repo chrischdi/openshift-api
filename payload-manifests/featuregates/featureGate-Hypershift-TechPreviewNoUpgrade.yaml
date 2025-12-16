@@ -15,6 +15,9 @@
             {
                 "disabled": [
                     {
+                        "name": "ClientsAllowCBOR"
+                    },
+                    {
                         "name": "ClusterAPIInstall"
                     },
                     {
@@ -42,6 +45,9 @@
                         "name": "NewOLM"
                     },
                     {
+                        "name": "NewOLMBoxCutterRuntime"
+                    },
+                    {
                         "name": "NewOLMCatalogdAPIV1Metas"
                     },
                     {
@@ -54,13 +60,13 @@
                         "name": "NewOLMWebhookProviderOpenshiftServiceCA"
                     },
                     {
-                        "name": "NoRegistryClusterOperations"
+                        "name": "NoRegistryClusterInstall"
+                    },
+                    {
+                        "name": "ProvisioningRequestAvailable"
                     },
                     {
                         "name": "ShortCertRotation"
-                    },
-                    {
-                        "name": "VSphereMixedNodeEnv"
                     }
                 ],
                 "enabled": [
@@ -125,9 +131,6 @@
                         "name": "CRDCompatibilityRequirementOperator"
                     },
                     {
-                        "name": "ClientsAllowCBOR"
-                    },
-                    {
                         "name": "ClientsPreferCBOR"
                     },
                     {
@@ -153,9 +156,6 @@
                     },
                     {
                         "name": "DyanmicServiceEndpointIBMCloud"
-                    },
-                    {
-                        "name": "DynamicResourceAllocation"
                     },
                     {
                         "name": "EtcdBackendQuota"
@@ -195,6 +195,9 @@
                     },
                     {
                         "name": "HighlyAvailableArbiter"
+                    },
+                    {
+                        "name": "HyperShiftOnlyDynamicResourceAllocation"
                     },
                     {
                         "name": "ImageModeStatusReporting"
@@ -281,6 +284,9 @@
                         "name": "OVNObservability"
                     },
                     {
+                        "name": "OnPremDNSRecords"
+                    },
+                    {
                         "name": "OpenShiftPodSecurityAdmission"
                     },
                     {
@@ -333,6 +339,9 @@
                     },
                     {
                         "name": "VSphereHostVMGroupZonal"
+                    },
+                    {
+                        "name": "VSphereMixedNodeEnv"
                     },
                     {
                         "name": "VSphereMultiDisk"

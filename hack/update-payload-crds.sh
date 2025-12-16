@@ -2,11 +2,9 @@
 
 source "$(dirname "${BASH_SOURCE}")/lib/init.sh"
 
-shopt -s extglob
-
 crd_globs="\
     authorization/v1/zz_generated.crd-manifests/*_config-operator_*.crd*yaml\
-    config/v1/zz_generated.crd-manifests/*_config-operator_!(01_insightsdatagathers*).crd*yaml\
+    config/v1/zz_generated.crd-manifests/*_config-operator_*.crd*yaml\
     machine/v1/zz_generated.crd-manifests/*.crd*yaml\
     operator/v1/zz_generated.crd-manifests//*_config-operator_*.crd*yaml\
     operator/v1alpha1/zz_generated.crd-manifests//*_config-operator_*.crd*yaml\
@@ -24,6 +22,8 @@ crd_globs="\
     config/v1/zz_generated.crd-manifests/0000_10_openshift-controller-manager_01_builds*.crd.yaml
     operator/v1/zz_generated.crd-manifests/0000_50_openshift-controller-manager_02_openshiftcontrollermanagers*.crd.yaml
     machineconfiguration/v1/zz_generated.crd-manifests/*.crd.yaml
+    machineconfiguration/v1alpha1/zz_generated.crd-manifests/0000_80_machine-config_01_internalreleaseimages-*.crd.yaml
+    machineconfiguration/v1alpha1/zz_generated.crd-manifests/0000_80_machine-config_01_osimagestreams-*.crd.yaml
     operator/v1/zz_generated.crd-manifests/0000_80_machine-config_01_machineconfigurations*.crd.yaml
     config/v1alpha1/zz_generated.crd-manifests/0000_10_config-operator_01_clustermonitoring*.crd.yaml
     operator/v1/zz_generated.crd-manifests/*_storage_01_storages*.crd.yaml
